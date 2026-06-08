@@ -11,24 +11,26 @@
  * 注意: ex_write.c を先に実行して mydata.csv を作っておくこと
  */
 
+
 #include <stdio.h>
 
 int main(void) {
     FILE *fp = fopen("mydata.csv", "r");
 
-    /* TODO: fp が NULL かどうかチェックして、NULL なら
-     *       エラーメッセージを表示して return 1; する */
+    if (fp == NULL) {
+        printf("ファイルを開けませんでした\n");
+        return 1;
+    }
 
     char  name[32];
     int   num;
     float dec;
 
-    /* TODO: fscanf で name, num, dec を読み込む
-     *       フォーマット文字列のヒント: "%31[^,],%d,%f" */
+    fscanf(fp, "%31[^,],%d,%f", name, &num, &dec);
 
     printf("名前: %s\n", name);
     printf("整数: %d\n",  num);
-    printf("小数: %.2f\n", dec);
+    printf("小数: %.3f\n", dec);
 
     fclose(fp);
     fp = NULL;
