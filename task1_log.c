@@ -16,8 +16,13 @@
 
 int main(void) {
     /* TODO: log.csv を "a"（追記）モードで開く */
-
+    const char *filename = "log.csv";
     /* TODO: NULLチェック */
+    FILE *fp = fopen(filename, "a");
+    if (fp == NULL) {
+        fprintf(stderr, "エラだよー");
+        return 1;
+    }
 
     /* TODO: 「教室,25,60.5」を1行書く */
 
