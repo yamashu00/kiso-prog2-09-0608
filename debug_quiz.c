@@ -23,9 +23,9 @@ int main(void) {
     float humidity    = 60.5;
     char  location[]  = "教室";
 
-    printf("場所: %d\n",   location);      // バグ①
-    printf("気温: %s°C\n", temperature);   // バグ②
-    printf("湿度: %d%%\n", humidity);      // バグ③
+    printf("場所: %s\n",   location);      // 修正①
+    printf("気温: %d°C\n", temperature);   // 修正②
+    printf("湿度: %.1f%%\n", humidity);    // 修正③
 
     return 0;
 }
