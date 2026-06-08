@@ -7,7 +7,8 @@
 //   4. step2_with_null_check.c と比べてみよう
 #include <stdio.h>
 
-int main(void) {
+int main(void)
+{
     // 存在しないフォルダを指定する → fopen が NULL を返す
     FILE *fp = fopen("/no_such_dir/sensor.csv", "w");
 
