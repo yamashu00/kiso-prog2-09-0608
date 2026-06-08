@@ -25,8 +25,8 @@ int main(void) {
     char  location[]  = {"教室"};
 
     printf("場所: %d\n",   location);      // バグ①
-    printf("気温: %s°C\n", temperature);   // バグ②
-    printf("湿度: %d %\n", humidity);      // バグ③
+    printf("気温: %f°C\n", temperature);   // バグ②
+    printf("湿度: %s %\n", humidity);      // バグ③
 
     return 0;
 }
