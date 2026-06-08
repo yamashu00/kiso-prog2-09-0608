@@ -17,6 +17,13 @@ int main(void) {
 
     /* TODO: fprintf で 名前,整数,小数 の形式で1行書く
      *       自分の名前・好きな数に変えること */
+    
+    if (fp == NULL) {
+        printf("ファイルを開けませんでした\n");
+        return 1;
+    }
+
+    fprintf(fp, "荒井里音,16,5.37\n");
 
     fclose(fp);
     fp = NULL;
