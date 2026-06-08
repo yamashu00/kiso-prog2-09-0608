@@ -22,6 +22,7 @@ int main(void) {
     /* TODO: fscanf のループで1行ずつ読み、読めるたびに lines を増やす
      *       ループの終了条件: fscanf の戻り値が 3 でなくなったとき */
 
+
     fclose(fp);
     fp = NULL;
 
