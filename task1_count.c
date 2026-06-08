@@ -15,13 +15,14 @@ int main(void) {
     /* TODO: NULLチェック */
 
     char  location[32];
-    int   temp;
-    float hum;
+    int   temp = 0;
+    float hum = 0.0;
     int   lines = 0;
 
     /* TODO: fscanf のループで1行ずつ読み、読めるたびに lines を増やす
      *       ループの終了条件: fscanf の戻り値が 3 でなくなったとき */
 
+    fscanf(fp, "");
     fclose(fp);
     fp = NULL;
 
