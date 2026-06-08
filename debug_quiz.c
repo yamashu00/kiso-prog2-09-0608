@@ -19,13 +19,13 @@
 #include <stdio.h>
 
 int main(void) {
+    char  location[]  = "教室";
     int   temperature = 25;
     float humidity    = 60.5;
-    char  location[]  = "教室";
 
-    printf("場所: %d\n",   location);      // バグ①
-    printf("気温: %s°C\n", temperature);   // バグ②
-    printf("湿度: %d%%\n", humidity);      // バグ③
+    printf("場所: %s\n", location);      // バグ①
+    printf("気温: %d°C\n", temperature);   // バグ②
+    printf("湿度: %0.1f%%\n", humidity);      // バグ③
 
     return 0;
 }

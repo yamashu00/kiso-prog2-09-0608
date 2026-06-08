@@ -14,6 +14,10 @@ int main(void) {
 
     /* TODO: NULLチェック */
 
+    if(fp == NULL){
+        return 1;
+    }
+
     char  location[32];
     int   temp;
     float hum;
@@ -21,6 +25,11 @@ int main(void) {
 
     /* TODO: fscanf のループで1行ずつ読み、読めるたびに lines を増やす
      *       ループの終了条件: fscanf の戻り値が 3 でなくなったとき */
+
+    while (fscanf(fp, "%31[^,],%d,%f",location, &temp, &hum) == 3)
+    {
+        lines++;
+    }
 
     fclose(fp);
     fp = NULL;

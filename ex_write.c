@@ -18,8 +18,16 @@ int main(void) {
     /* TODO: fprintf で 名前,整数,小数 の形式で1行書く
      *       自分の名前・好きな数に変えること */
 
+    if (fp == NULL){
+        printf("ファイルを開けませんでした。\n");
+        return 1;
+    }
+
+    fprintf(fp, "高瀬喜糸,61,9.99\n");
+
     fclose(fp);
     fp = NULL;
+
     printf("書き込み完了\n");
     return 0;
 }
