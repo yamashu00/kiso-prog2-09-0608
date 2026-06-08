@@ -1,5 +1,3 @@
-// step0_no_file.c
-// 何度実行しても「1 回目」のまま — 変数はプログラムが終わると消えるから
 #include <stdio.h>
 
 int main(void) {

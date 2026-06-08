@@ -1,30 +1,18 @@
-/*
- * ex_read.c — ★ 基本演習（全員）
- *
- * 目標: ex_write.c で作った mydata.csv を読み込んで表示する
- *
- * 期待される出力例:
- *   名前: 山本周
- *   整数: 42
- *   小数: 3.14
- *
- * 注意: ex_write.c を先に実行して mydata.csv を作っておくこと
- */
-
 #include <stdio.h>
 
 int main(void) {
     FILE *fp = fopen("mydata.csv", "r");
 
-    /* TODO: fp が NULL かどうかチェックして、NULL なら
-     *       エラーメッセージを表示して return 1; する */
+    if (fp == NULL){
+        printf("ファイルが読み込めませんでした");
+        return 1;
+    }
 
     char  name[32];
     int   num;
     float dec;
 
-    /* TODO: fscanf で name, num, dec を読み込む
-     *       フォーマット文字列のヒント: "%31[^,],%d,%f" */
+    fscanf(fp,"%31[^,],%d,%f\n",name,&num,&dec);
 
     printf("名前: %s\n", name);
     printf("整数: %d\n",  num);
