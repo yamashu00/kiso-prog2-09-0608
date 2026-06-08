@@ -15,6 +15,10 @@
 
 int main(void) {
     FILE *fp = fopen("mydata.csv", "r");
+    if(fp == NULL){
+        fprintf(stderr, "ファイルが開けませんでした\n");
+        return 1;
+    }
 
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
@@ -25,6 +29,7 @@ int main(void) {
 
     /* TODO: fscanf で name, num, dec を読み込む
      *       フォーマット文字列のヒント: "%31[^,],%d,%f" */
+    fscanf(fp,"%31[^,],%d,%f, name, &num,&dec");
 
     printf("名前: %s\n", name);
     printf("整数: %d\n",  num);

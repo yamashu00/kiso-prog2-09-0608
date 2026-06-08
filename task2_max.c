@@ -20,7 +20,9 @@
 int main(void) {
     FILE *fp = fopen("sensor.csv", "r");
 
-    /* TODO: NULLチェック */
+    if(fp == NULL){
+        fprintf(stderr, "ファイルを実行しました\n");
+    }
 
     char  location[32];
     char  max_location[32] = "";
@@ -30,6 +32,7 @@ int main(void) {
 
     /* TODO: fscanf のループで全行読む
      *       各行で temp > max_temp なら max_temp と max_location を更新する */
+    
 
     fclose(fp);
     fp = NULL;
