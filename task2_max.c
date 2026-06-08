@@ -21,6 +21,10 @@ int main(void) {
     FILE *fp = fopen("sensor.csv", "r");
 
     /* TODO: NULLチェック */
+    if(fp == NULL){
+        printf("エラーです");
+        return 1;
+    }
 
     char  location[32];
     char  max_location[32] = "";
@@ -30,6 +34,14 @@ int main(void) {
 
     /* TODO: fscanf のループで全行読む
      *       各行で temp > max_temp なら max_temp と max_location を更新する */
+    while (fscanf(fp, "%31[^,],%d,%f", location, &temp, &hum) == 3){
+        if(temp > max_temp){
+            max_temp = temp;
+            strncpy(max_location, location, sizeof(max_location) - 1);
+            max_location[sizeof(max_location) - 1] = '\0';
+        }
+    }
+    
 
     fclose(fp);
     fp = NULL;
