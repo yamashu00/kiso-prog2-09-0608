@@ -14,10 +14,16 @@ int main(void) {
 
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
+    if (fp==NULL)
+    {
+        printf("エラーです\n");
+        return 1;
+    }
+    
 
     /* TODO: fprintf で 名前,整数,小数 の形式で1行書く
      *       自分の名前・好きな数に変えること */
-
+    fprintf(fp, "塚本唯佳,7,12.7\n");
     fclose(fp);
     fp = NULL;
     printf("書き込み完了\n");
