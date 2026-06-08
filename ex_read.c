@@ -13,21 +13,30 @@
 
 #include <stdio.h>
 
-int main(void) {
+int main(void)
+{
     FILE *fp = fopen("mydata.csv", "r");
 
-    /* TODO: fp が NULL かどうかチェックして、NULL なら
-     *       エラーメッセージを表示して return 1; する */
+    if (fp == NULL)
+    {
+        printf("ファイルを開けませんでした\n");
+        return 1;
+    }
 
-    char  name[32];
-    int   num;
+    char name[32];
+    int num;
     float dec;
 
-    /* TODO: fscanf で name, num, dec を読み込む
-     *       フォーマット文字列のヒント: "%31[^,],%d,%f" */
+    if (fscanf(fp, "%31[^,],%d,%f", name, &num, &dec) != 3)
+    {
+        printf("データを正しく読み込めませんでした\n");
+        fclose(fp);
+        fp = NULL;
+        return 1;
+    }
 
     printf("名前: %s\n", name);
-    printf("整数: %d\n",  num);
+    printf("整数: %d\n", num);
     printf("小数: %.2f\n", dec);
 
     fclose(fp);
