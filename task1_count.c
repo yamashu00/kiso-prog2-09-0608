@@ -13,14 +13,21 @@ int main(void) {
     FILE *fp = fopen("log.csv", "r");
 
     /* TODO: NULLチェック */
+    if (fp == NULL) {
+        fprintf(stderr, "書き込み用ファイルを開けませんでした\n");
+        return 1;
+    }
 
     char  location[32];
-    int   temp;
-    float hum;
+    int   temperature;
+    float humidity;
     int   lines = 0;
 
-    /* TODO: fscanf のループで1行ずつ読み、読めるたびに lines を増やす
-     *       ループの終了条件: fscanf の戻り値が 3 でなくなったとき */
+    /* TODO: fscanf のループで1行ずつ読み、読めるたびに lines を増やす ループの終了条件: fscanf の戻り値が 3 でなくなったとき */
+    while (fscanf(fp, "%31[^,],%d,%f\n", location, &temperature, &humidity) == 3) {
+        printf("%s: %d°C / %.0f%%\n", location, temperature, humidity);
+        lines ++;
+    }
 
     fclose(fp);
     fp = NULL;

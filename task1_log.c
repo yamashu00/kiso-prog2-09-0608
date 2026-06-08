@@ -16,12 +16,20 @@
 
 int main(void) {
     /* TODO: log.csv を "a"（追記）モードで開く */
+    FILE *fp = fopen("log.csv", "a");
 
     /* TODO: NULLチェック */
+    if (fp == NULL) {
+        fprintf(stderr, "書き込み用ファイルを開けませんでした\n");
+        return 1;
+    }
 
     /* TODO: 「教室,25,60.5」を1行書く */
+    fprintf(fp, "教室,%d,%.1f\n", 25, 60.5);
 
     /* TODO: fclose する */
+    fclose(fp);
+    fp = NULL;
 
     printf("追記しました\n");
     return 0;
