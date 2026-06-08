@@ -33,7 +33,8 @@ int main(void) {
      *       各行で temp > max_temp なら max_temp と max_location を更新する */
     while (fscanf(fp, "%31[^,],%d,%f", location, &temp, &hum) == 3) {
         if(temp > max_temp){
-            
+            max_temp = temp;
+            strcpy(max_location, location);
         }
     }
 
