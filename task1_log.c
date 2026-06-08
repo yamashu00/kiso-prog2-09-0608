@@ -16,11 +16,22 @@
 
 int main(void) {
     /* TODO: log.csv を "a"（追記）モードで開く */
+    FILE *fp = fopen("drndot.csv", "r");
+
+    if (fp == NULL)
+    {
+        fprintf(stderr, "ファイルを開けませんでした\n");
+        return 1;
+    }
+    
 
     /* TODO: NULLチェック */
 
+    fprintf(fp, "体育館,20, 50,0\n");
     /* TODO: 「教室,25,60.5」を1行書く */
 
+    fclose(fp);
+    fp = NULL;
     /* TODO: fclose する */
 
     printf("追記しました\n");

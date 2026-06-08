@@ -10,8 +10,12 @@
 #include <stdio.h>
 
 int main(void) {
-    FILE *fp = fopen("log.csv", "r");
+    FILE *fp = fopen("sensor.csv", "r");
 
+    if (fp == NULL) {
+        fprintf(stderr, "ファイルを開けませんでした\n");
+        return 1;
+    }
     /* TODO: NULLチェック */
 
     char  location[32];
@@ -19,6 +23,12 @@ int main(void) {
     float hum;
     int   lines = 0;
 
+    while (fscanf(fp, "%31[^,],%d,%f\n", location, &temp, &hum) == 3)
+    {
+        lines++;
+    }
+    
+    
     /* TODO: fscanf のループで1行ずつ読み、読めるたびに lines を増やす
      *       ループの終了条件: fscanf の戻り値が 3 でなくなったとき */
 
