@@ -18,10 +18,13 @@
 #include <string.h>
 
 int main(void) {
-    FILE *fp = fopen("sensor.csv", "r");
+    FILE *fp = fopen("log.csv", "r");
 
     /* TODO: NULLチェック */
-
+    if (fp == NULL) {
+        fprintf(stderr, "書き込み用ファイルを開けませんでした\n");
+        return 1;
+    }
     char  location[32];
     char  max_location[32] = "";
     int   temp;
@@ -30,7 +33,12 @@ int main(void) {
 
     /* TODO: fscanf のループで全行読む
      *       各行で temp > max_temp なら max_temp と max_location を更新する */
-
+    while (fscanf(fp, "%31[^,],%d,%f\n", location, &temp, &hum) == 3) {
+        if(max_temp<temp){
+            max_temp=temp;
+            strcpy(max_location,location);
+        }
+    }
     fclose(fp);
     fp = NULL;
 
