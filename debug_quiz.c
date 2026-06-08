@@ -19,7 +19,7 @@
 #include <stdio.h>
 
 int main(void) {
-    int   temperature = 25;
+    int   temperature = 25
     float humidity    = 60.5;
     char  location[]  = "教室";
 
