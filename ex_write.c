@@ -7,19 +7,48 @@
  *   山本周,42,3.14
  */
 
-#include <stdio.h>
+ /*#include <stdio.h>
+
+ int main(void) {
+     FILE *fp = fopen("mydata.csv", "w");
+ 
+     if (fp == NULL) {
+         printf("ファイルを開けませんでした。\n");
+         return 1;
+     }
+ 
+     fprintf(fp, "%s,%d,%.1f\n", "石川莉子", 16, 42.6);
+ 
+     fclose(fp);
+ 
+     printf("書き込み完了\n");
+     return 0;
+ }*/
+
+ #include <stdio.h>
 
 int main(void) {
-    FILE *fp = fopen("mydata.csv", "w");
+    FILE *fp = fopen("mydata.csv", "r");
 
-    /* TODO: fp が NULL かどうかチェックして、NULL なら
-     *       エラーメッセージを表示して return 1; する */
+    if (fp == NULL) {
+        printf("ファイルを開けませんでした。\n");
+        return 1;
+    }
 
-    /* TODO: fprintf で 名前,整数,小数 の形式で1行書く
-     *       自分の名前・好きな数に変えること */
+    char  name[32];
+    int   num;
+    float dec;
+
+    if (fscanf(fp, "%31[^,],%d,%f", name, &num, &dec) != 3) {
+        printf("読み込みエラーです。mydata.csv の中身を確認してください。\n");
+        fclose(fp);
+        return 1;
+    }
+
+    printf("名前: %s\n", name);
+    printf("整数: %d\n", num);
+    printf("小数: %.2f\n", dec);
 
     fclose(fp);
-    fp = NULL;
-    printf("書き込み完了\n");
     return 0;
 }

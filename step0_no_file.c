@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 int main(void) {
-    int count = 0;
-    count++;
+    int count = 1;
     printf("センサーの計測回数: %d 回目\n", count);
+    count++;
     return 0;
 }

@@ -19,12 +19,19 @@ int main(void) {
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
 
+     if(fp == NULL){
+        printf("エラーです。");
+        return 1;
+     }
+
     char  name[32];
     int   num;
     float dec;
 
     /* TODO: fscanf で name, num, dec を読み込む
      *       フォーマット文字列のヒント: "%31[^,],%d,%f" */
+
+    fprintf(fp, "%s,%d,%.1f\n", "石川莉子", 16, 42.6);
 
     printf("名前: %s\n", name);
     printf("整数: %d\n",  num);
