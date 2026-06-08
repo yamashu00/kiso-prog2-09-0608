@@ -13,6 +13,10 @@ int main(void) {
     FILE *fp = fopen("log.csv", "r");
 
     /* TODO: NULLチェック */
+    if (fp == NULL) {
+        fprintf(stderr, "エラー：ファイルを開けませんでした\n");
+        return 1;
+    }
 
     char  location[32];
     int   temp;
@@ -21,7 +25,9 @@ int main(void) {
 
     /* TODO: fscanf のループで1行ずつ読み、読めるたびに lines を増やす
      *       ループの終了条件: fscanf の戻り値が 3 でなくなったとき */
-
+    while (fscanf(fp, "%31[^,],%d,%f\n", location, &temp, &hum) == 3) {
+        lines ++;
+    }
     fclose(fp);
     fp = NULL;
 

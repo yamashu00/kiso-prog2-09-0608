@@ -11,7 +11,7 @@
 int main(void) {
     FILE *fp = fopen("sensor.csv", "a");   // "w" → "a"
 
-    fprintf(fp, "体育館,20,50.0\n");
+    fprintf(fp, "校長室,20,50.0\n");
 
     fclose(fp);
     printf("追記しました\n");
