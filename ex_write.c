@@ -12,11 +12,12 @@
 int main(void) {
     FILE *fp = fopen("mydata.csv", "w");
 
-    /* TODO: fp が NULL かどうかチェックして、NULL なら
-     *       エラーメッセージを表示して return 1; する */
+    if (fp == NULL) {
+        printf("ファイルが開けませんでした");
+        return 1;
+    }
 
-    /* TODO: fprintf で 名前,整数,小数 の形式で1行書く
-     *       自分の名前・好きな数に変えること */
+    fprintf(fp,"木村優太,6,1.414\n");
 
     fclose(fp);
     fp = NULL;
