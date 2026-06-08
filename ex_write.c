@@ -15,8 +15,14 @@ int main(void) {
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
 
+     if(fp == NULL){
+        printf("ファイルに書き込めませんでした。");
+        return 1;
+     }
     /* TODO: fprintf で 名前,整数,小数 の形式で1行書く
      *       自分の名前・好きな数に変えること */
+
+     fprintf(fp, "片岡詩和, 55, 5.17");
 
     fclose(fp);
     fp = NULL;
