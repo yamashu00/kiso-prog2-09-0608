@@ -17,6 +17,10 @@ int main(void) {
     FILE *in = fopen("sensor.csv", "r");
 
     /* TODO: in の NULLチェック */
+    if(in == NULL){
+        fprintf(stderr, "エラー：ファイルが開けませんでした");
+        return 1;
+    }
 
     FILE *out = fopen("sensor_backup.csv", "w");
 
@@ -24,12 +28,22 @@ int main(void) {
      *       ヒント: out が NULL のとき、in はすでに開いているので
      *               fclose(in); してから return 1; すること */
 
+    if(out == NULL){
+        fprintf(stderr, "エラー：ファイルが開けませんでした");
+        fclose(in);
+        return 1;
+    }
+
     char  location[32];
     int   temp;
     float hum;
     int   count = 0;
 
     /* TODO: fscanf のループで in から読んで、out に fprintf で書く */
+    while(fscanf(in, "%31[^,],%d,%f\n", location, &temp, &hum) == 3){
+        fprintf(out, "%s,%d,%.1f\n", location, temp, hum);
+        count++;
+    }
 
     fclose(in);
     in = NULL;
