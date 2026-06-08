@@ -11,6 +11,11 @@
 int main(void) {
     FILE *fp = fopen("sensor.csv", "w");
 
+    if (fp == NULL) {
+        printf("ファイルを開けませんでした\n");
+        return 1;
+    }
+
     fprintf(fp, "教室,25,60.5\n");
     fprintf(fp, "廊下,22,55.0\n");
     fprintf(fp, "食堂,28,70.0\n");

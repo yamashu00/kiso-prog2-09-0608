@@ -14,9 +14,18 @@ int main(void) {
 
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
+    if(fp == NULL) {
+        printf("ファイルを確認できませんでした。\n");
+        return 1;
+    }
+
+    char name[] = "則末悠真";
+    int num = 1;
+    float value = 1.1;
 
     /* TODO: fprintf で 名前,整数,小数 の形式で1行書く
      *       自分の名前・好きな数に変えること */
+    fprintf(fp, "%s,%d,%.1f", name, num, value);
 
     fclose(fp);
     fp = NULL;
