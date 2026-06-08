@@ -15,13 +15,21 @@
 #include <stdio.h>
 
 int main(void) {
-    /* TODO: log.csv を "a"（追記）モードで開く */
+    FILE *fp = fopen("log.csv", "a");
 
-    /* TODO: NULLチェック */
+    if (fp == NULL) {
 
-    /* TODO: 「教室,25,60.5」を1行書く */
+        printf("エラー：ファイルを開けませんでした\n");
 
-    /* TODO: fclose する */
+        return 1;
+
+    }
+
+    fprintf(fp, "教室,25,60.5\n");
+
+    fclose(fp);
+
+    fp = NULL;
 
     printf("追記しました\n");
     return 0;
