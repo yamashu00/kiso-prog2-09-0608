@@ -18,13 +18,18 @@ int main(void) {
 
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
+    if (fp == NULL) {
+        fprintf(stderr, "ファイルを開けませんでした\n");
+        return 1;
+    }
 
     char  name[32];
     int   num;
     float dec;
 
     /* TODO: fscanf で name, num, dec を読み込む
-     *       フォーマット文字列のヒント: "%31[^,],%d,%f" */
+     *       フォーマット文字列のヒント: "%31[^,],%d,%f" %31[^,]はカンマを読み飛ばす意味*/
+    fscanf(fp, "%31[^,],%d,%f", name, &num, &dec);
 
     printf("名前: %s\n", name);
     printf("整数: %d\n",  num);
@@ -34,3 +39,13 @@ int main(void) {
     fp = NULL;
     return 0;
 }
+
+/*
+fprintf は指定した場所に書き込む
+
+| 関数                | 役割         |
+| ------------------ | ---------- |
+| `printf()`         | 画面に表示      |
+| `fprintf(fp, ...)` | ファイルに書き込み  |
+| `fscanf(fp, 書式, 読み込む変数)`  | ファイルから読み込み |
+*/
