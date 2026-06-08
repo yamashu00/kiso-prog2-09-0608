@@ -12,6 +12,23 @@
 int main(void) {
     FILE *fp = fopen("mydata.csv", "w");
 
+    if (fp == NULL) {
+        fprintf(stderr, "ファイルを開けませんでした\n");
+        return 1;
+    }
+
+    char  name[30];
+    int   num;
+    float dec;
+
+    fprintf(fp, "杉浦由莉子,37,36.9\n");
+    // CSV の1行目だけ読む
+    // fscanf(fp, "%31[^,],%d,%f\n", &name, &num, &dec);
+
+    // printf("場所: %s\n", name);
+    // printf("気温: %d°C\n", num);
+    // printf("湿度: %.1f%%\n", dec);
+
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
 
