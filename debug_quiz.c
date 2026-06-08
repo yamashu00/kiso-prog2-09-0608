@@ -17,15 +17,16 @@
  */
 
 #include <stdio.h>
+#include<string.h>
 
 int main(void) {
     int   temperature = 25;
     float humidity    = 60.5;
-    char  location[]  = "教室";
+    char  location[]  = {"教室"};
 
     printf("場所: %d\n",   location);      // バグ①
     printf("気温: %s°C\n", temperature);   // バグ②
-    printf("湿度: %d%%\n", humidity);      // バグ③
+    printf("湿度: %d %\n", humidity);      // バグ③
 
     return 0;
 }
