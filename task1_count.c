@@ -13,6 +13,10 @@ int main(void) {
     FILE *fp = fopen("log.csv", "r");
 
     /* TODO: NULLチェック */
+    if (fp == NULL) {
+        printf("ファイルを開けません\n");
+        return 1;
+    }
 
     char  location[32];
     int   temp;

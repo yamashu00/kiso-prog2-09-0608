@@ -18,6 +18,10 @@ int main(void) {
 
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
+    if (fp == NULL) {
+        printf("ファイルを開けません\n");
+        return 1;
+    }
 
     char  name[32];
     int   num;
