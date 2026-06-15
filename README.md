@@ -15,7 +15,7 @@
 Fork した**自分の**リポジトリのページを開き、緑の「Code」ボタン → URL をコピーして実行：
 
 ```bash
-git clone https://github.com/自分のユーザー名/kiso-prog2-09-0608.git
+git clone https://github.com/kanna-y/kiso-prog2-09-0608.git
 cd kiso-prog2-09-0608
 ```
 

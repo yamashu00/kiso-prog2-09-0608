@@ -19,9 +19,9 @@ int main(void) {
     /* TODO: fp が NULL かどうかチェックして、NULL なら
      *       エラーメッセージを表示して return 1; する */
 
-    char  name[32];
-    int   num;
-    float dec;
+    char  name[32] = "山本周";
+    int   num = 42;
+    float dec = 3.14;
 
     /* TODO: fscanf で name, num, dec を読み込む
      *       フォーマット文字列のヒント: "%31[^,],%d,%f" */
